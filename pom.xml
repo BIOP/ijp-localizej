@@ -12,11 +12,10 @@
 		<relativePath />
 	</parent>
 
-	<artifactId>IJ_Demo_Plugin</artifactId>
+	<artifactId>Localize_J</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 
-	<name>plugins/IJ_Demo_Plugin.jar</name>
-	<description>A Maven project implementing an ImageJ 1.x plugin</description>
+	<name>plugins/Localize_J</name>
 
 	<developers>
 		<developer>
@@ -33,21 +32,39 @@
 			<timezone>-6</timezone>
 		</developer>
 	</developers>
-
+	<repositories>
+  <!-- NB: for project parent -->
+  <repository>
+    <id>imagej.public</id>
+    <url>http://maven.imagej.net/content/groups/public</url>
+  </repository>
+</repositories>
 	<scm>
 		<tag>HEAD</tag>
-		<url>https://git.epfl.ch/repo/ij-minimal-biop-plugin.git</url>
+		<url>https://git.epfl.ch/repo/ijp-localize-j.git</url>
 	</scm>
 
 	<properties>
-		<main-class>IJ_Demo_Plugin</main-class>
-		<imagej.app.directory>C:/Fiji.app/</imagej.app.directory>
+		<main-class>Localize_J</main-class>
+		<imagej.app.directory>C:/Fiji/</imagej.app.directory>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>ij</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>colt</groupId>
+			<artifactId>colt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>sc.fiji</groupId>
+			<artifactId>imagescience</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>sc.fiji</groupId>
+			<artifactId>Image_5D</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -67,4 +84,24 @@
 	</build>
 
 	<groupId>ch.epfl.biop</groupId>
+	<description>An ImageJ plugin which allows the efficient numerical simulation of temporal image stacks resulting from blinking fluorophores seen in a classical diffraction limited imaging setup. Due to its openness and modularity the plugin can be easily modified and extended. In addition it is well suited to serve as didactical tool in multi user facilities helping to introduce and promote localization based super-resolution nanoscopy.</description>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>colt</groupId>
+				<artifactId>colt</artifactId>
+				<version>1.2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>sc.fiji</groupId>
+				<artifactId>imagescience</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>sc.fiji</groupId>
+				<artifactId>Image_5D</artifactId>
+				<version>1.2.6</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
